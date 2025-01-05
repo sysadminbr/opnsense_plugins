@@ -2,3 +2,4 @@
 if [ -f /var/run/squid/squid.pid ]; then
 	service squid reload
 fi
+/usr/local/etc/rc.configure_plugins
