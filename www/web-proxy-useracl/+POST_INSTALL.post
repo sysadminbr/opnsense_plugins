@@ -1,5 +1,11 @@
+# give execution permissions and execute reload for this plugin
+chmod +x /usr/local/opnsense/scripts/OPNsense/ProxyUserACL/reload.php
 /usr/local/opnsense/scripts/OPNsense/ProxyUserACL/reload.php
+
+# reload squid if running
 if [ -f /var/run/squid/squid.pid ]; then
 	service squid reload
 fi
+
+# reload plugins information base
 /usr/local/etc/rc.configure_plugins
