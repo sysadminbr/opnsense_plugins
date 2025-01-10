@@ -32,6 +32,7 @@ namespace OPNsense\ProxyUserACL\Api;
 
 use OPNsense\Base\ApiMutableModelControllerBase;
 use OPNsense\Core\Config;
+use OPNsense\Core\Backend;
 use OPNsense\Base\UIModelGrid;
 use OPNsense\Auth\AuthenticationFactory;
 use OPNsense\Proxy\Proxy;
@@ -105,6 +106,8 @@ class SettingsController extends ApiMutableModelControllerBase
                 // save config if validated correctly
                 $mdlProxyUserACL->serializeToConfig();
                 Config::getInstance()->save();
+                $backend = new Backend();
+                $backend->configdRun("proxyuseracl reload");
                 return array("result" => "saved");
             }
             return $result;
@@ -205,6 +208,8 @@ class SettingsController extends ApiMutableModelControllerBase
                     // save config if validated correctly
                     $mdlProxyUserACL->serializeToConfig();
                     Config::getInstance()->save();
+                    $backend = new Backend();
+                    $backend->configdRun("proxyuseracl reload");
                     return array("result" => "saved");
                 }
             }
@@ -227,6 +232,8 @@ class SettingsController extends ApiMutableModelControllerBase
                 $this->repackPriority();
                 $mdlProxyUserACL->serializeToConfig();
                 Config::getInstance()->save();
+                $backend = new Backend();
+                $backend->configdRun("proxyuseracl reload");
                 $result['result'] = 'deleted';
             } else {
                 $result['result'] = 'not found';
@@ -275,6 +282,8 @@ class SettingsController extends ApiMutableModelControllerBase
                     $mdlProxyUserACL->general->ACLs->ACL->{$uuid}->Priority = (string)$new_priority;
                     $mdlProxyUserACL->serializeToConfig();
                     Config::getInstance()->save();
+                    $backend = new Backend();
+                    $backend->configdRun("proxyuseracl reload");
                     return array('result' => 'success');
                 }
             }
