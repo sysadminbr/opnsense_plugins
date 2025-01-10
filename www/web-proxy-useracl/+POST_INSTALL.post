@@ -1,6 +1,5 @@
-# give execution permissions and execute reload for this plugin
+# give execution permissions to plugin reload script
 chmod +x /usr/local/opnsense/scripts/OPNsense/ProxyUserACL/reload.php
-/usr/local/opnsense/scripts/OPNsense/ProxyUserACL/reload.php
 
 # reload squid if running
 if [ -f /var/run/squid/squid.pid ]; then
@@ -9,3 +8,7 @@ fi
 
 # reload plugins information base
 /usr/local/etc/rc.configure_plugins
+
+# reload configd service
+# if we don't restart the service (or perharps the firewall) the reload action (after modify an acl) would not be recognized.
+service configd restart
