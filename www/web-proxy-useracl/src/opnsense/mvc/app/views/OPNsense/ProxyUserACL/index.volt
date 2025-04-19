@@ -117,7 +117,7 @@ POSSIBILITY OF SUCH DAMAGE.
                        data-editDialog="DialogACL">
                     <thead>
                     <tr>
-                        <th data-column-id="Priority" data-width="10em" data-type="string" data-sortable="false"
+                        <th data-column-id="Priority" data-width="10em" data-type="string" data-sortable="true"
                             data-visible="true">{{ lang._('Number') }}</th>
                         <th data-column-id="Group" data-width="10em" data-type="string"
                             data-sortable="false">{{ lang._('Group') }}</th>
