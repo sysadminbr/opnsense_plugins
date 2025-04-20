@@ -1,6 +1,6 @@
 <model>
     <mount>//OPNsense/ProxyUserACL</mount>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>
         Group and User ACL settings
     </description>
@@ -35,8 +35,12 @@
                         <OptionValues>
                             <group>Group</group>
                             <user>User</user>
+                            <address>Address</address>
                         </OptionValues>
                     </Group>
+                    <Address type="CSVListField">
+                        <Required>N</Required>
+                    </Address>
                 </ACL>
             </ACLs>
         </general>

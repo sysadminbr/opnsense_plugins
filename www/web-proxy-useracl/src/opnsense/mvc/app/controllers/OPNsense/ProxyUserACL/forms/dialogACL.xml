@@ -18,6 +18,21 @@
         <help>Group or User ACL</help>
     </field>
     <field>
+        <id>ACL.Address</id>
+        <label>Address</label>
+        <type>select_multiple</type>
+        <style>tokenize</style>
+        <allownew>true</allownew>
+        <help>List of network addresses that this ACL applies to.</help>
+        <help><![CDATA[Source addresses.<br/>
+        <div class="alert alert-info">
+            <b>Examples:</b><br/>
+            <b class="text-primary">192.168.0.10</b> -> matches only that address.</b><br/>
+            <b class="text-primary">192.168.0.0/24</b> -> matches whole subnet.</b><br/>
+        </div>
+        <div class="text-info"><b>TIP: </b>You can also paste a comma separated list into this field.</div>]]></help>
+    </field>
+    <field>
         <id>ACL.Black</id>
         <label>Black/White</label>
         <type>dropdown</type>

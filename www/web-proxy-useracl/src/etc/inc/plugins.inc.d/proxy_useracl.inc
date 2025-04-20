@@ -32,6 +32,7 @@ function proxy_useracl_configure()
 {
     return [
         'webproxy' => ['proxy_useracl_squid_hook:2'],
+        //'proxy' => ['proxy_useracl_squid_hook:2'],
     ];
 }
 

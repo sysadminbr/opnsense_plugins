@@ -38,8 +38,17 @@ $mdlProxyUserACL = new ProxyUserACL();
 $domain = strtoupper((string) Config::getInstance()->object()->system->domain);
 
 array_map('unlink', glob("/usr/local/etc/squid/ACL_useracl_*.txt"));
+array_map('unlink', glob("/usr/local/etc/squid/ACL_address_*.txt"));
 foreach ($mdlProxyUserACL->getNodeByReference('general.ACLs.ACL')->getNodes() as $acl) {
-    file_put_contents("/usr/local/etc/squid/ACL_useracl_" .
-        $acl["Priority"] . ".txt", $acl["Name"] . "\n" .
-        ($acl["Group"]["user"]["selected"] == "1" ? $acl["Name"] . "@" . $domain . "\n" : ""));
+    if($acl["Group"]["address"]["selected"] == "1") {
+        $lines = "";
+        foreach($acl["Address"] as $addr => $val) {
+            $lines .= $addr . "\n";
+        }
+        file_put_contents("/usr/local/etc/squid/ACL_address_" . $acl["Priority"] . ".txt", $lines);
+    } else {
+        file_put_contents("/usr/local/etc/squid/ACL_useracl_" .
+            $acl["Priority"] . ".txt", $acl["Name"] . "\n" .
+            ($acl["Group"]["user"]["selected"] == "1" ? $acl["Name"] . "@" . $domain . "\n" : ""));
+    }
 }
