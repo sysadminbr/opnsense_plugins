@@ -293,6 +293,10 @@ class SettingsController extends ApiMutableModelControllerBase
 
     private function checkName($user, $search)
     {
+        /* do not validate name of address agains a user source */
+        if($search == "address") { 
+            return true;
+        }
         $authFactory = new AuthenticationFactory();
         $servers = $authFactory->listServers();
 
