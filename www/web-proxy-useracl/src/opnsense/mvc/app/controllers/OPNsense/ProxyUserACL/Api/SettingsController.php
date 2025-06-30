@@ -58,7 +58,7 @@ class SettingsController extends ApiMutableModelControllerBase
         $grid = new UIModelGrid($mdlProxyUserACL->general->ACLs->ACL);
         return $grid->fetchBindRequest(
             $this->request,
-            array('Group', 'Name', 'Domains', 'Black', 'Priority', 'uuid'),
+            array('SourceType', 'Name', 'Domains', 'Action', 'Priority', 'uuid'),
             'Priority'
         );
     }
@@ -91,7 +91,7 @@ class SettingsController extends ApiMutableModelControllerBase
             }
             $node = $mdlProxyUserACL->general->ACLs->ACL->Add();
             $node->setNodes($post);
-            $find = $this->checkName($post["Name"], $post["Group"]);
+            $find = $this->checkName($post["Name"], $post["SourceType"]);
             if ($find !== true) {
                 $result["validations"]["ACL.Name"] = $find;
             }
@@ -191,7 +191,7 @@ class SettingsController extends ApiMutableModelControllerBase
                         }
                     }
                     $node->setNodes($ACLInfo);
-                    $find = $this->checkName($ACLInfo["Name"], $ACLInfo["Group"]);
+                    $find = $this->checkName($ACLInfo["Name"], $ACLInfo["SourceType"]);
                     if ($find !== true) {
                         $result["validations"]["ACL.Name"] = $find;
                     }
@@ -302,7 +302,7 @@ class SettingsController extends ApiMutableModelControllerBase
 
         foreach (explode(',', (new Proxy())->forward->authentication->method) as $method) {
             if ($method == "") {
-                return gettext("No authentication method selected");
+                return gettext("No authentication method selected when using User/Group as source!");
             }
             $server = $servers[$method];
             switch ($server["type"]) {

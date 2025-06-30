@@ -40,15 +40,27 @@ $domain = strtoupper((string) Config::getInstance()->object()->system->domain);
 array_map('unlink', glob("/usr/local/etc/squid/ACL_useracl_*.txt"));
 array_map('unlink', glob("/usr/local/etc/squid/ACL_address_*.txt"));
 foreach ($mdlProxyUserACL->getNodeByReference('general.ACLs.ACL')->getNodes() as $acl) {
-    if($acl["Group"]["address"]["selected"] == "1") {
+    if($acl["SourceType"]["address"]["selected"] == "1") {
         $lines = "";
-        foreach($acl["Address"] as $addr => $val) {
+        foreach($acl["SourceAddress"] as $addr => $val) {
             $lines .= $addr . "\n";
         }
         file_put_contents("/usr/local/etc/squid/ACL_address_" . $acl["Priority"] . ".txt", $lines);
     } else {
-        file_put_contents("/usr/local/etc/squid/ACL_useracl_" .
-            $acl["Priority"] . ".txt", $acl["Name"] . "\n" .
-            ($acl["Group"]["user"]["selected"] == "1" ? $acl["Name"] . "@" . $domain . "\n" : ""));
+        $line = $acl["Name"] . "\n" . ($acl["SourceType"]["user"]["selected"] == "1" ? $acl["Name"] . "@" . $domain . "\n" : "");
+        file_put_contents("/usr/local/etc/squid/ACL_useracl_" . $acl["Priority"] . ".txt", $line);
     }
+
+
+    // categories
+    $categories_file = fopen("/usr/local/etc/squid/ACL_categories_" . $acl["Priority"] . ".txt", "w");
+    foreach($acl["Categories"] as $category_key => $category) {
+        if($category["selected"] == 1) {
+	    $line = str_replace("_", " ", str_replace("-", "/", $category_key));
+            fwrite($categories_file, $line . "\n");
+        }
+    }
+    //$fclose($categories_file);
+
+
 }

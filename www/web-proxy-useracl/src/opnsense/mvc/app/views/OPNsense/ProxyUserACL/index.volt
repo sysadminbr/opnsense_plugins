@@ -119,11 +119,11 @@
                         <tr>
                             <th data-column-id="Priority" data-width="10em" data-type="string" data-sortable="true"
                                 data-visible="true">{{ lang._('Number') }}</th>
-                            <th data-column-id="Group" data-width="10em" data-type="string"
+                            <th data-column-id="SourceType" data-width="10em" data-type="string"
                                 data-sortable="false">{{ lang._('Source') }}</th>
-                            <th data-column-id="Address" data-width="10em" data-type="string"
+                            <th data-column-id="SourceAddress" data-width="10em" data-type="string"
                                 data-sortable="false">{{ lang._('Address') }}</th>
-                            <th data-column-id="Black" data-width="10em" data-type="string"
+                            <th data-column-id="Action" data-width="10em" data-type="string"
                                 data-sortable="false">{{ lang._('Action') }}</th>
                             <th data-column-id="Name" data-type="string"
                                 data-sortable="false">{{ lang._('Name') }}</th>

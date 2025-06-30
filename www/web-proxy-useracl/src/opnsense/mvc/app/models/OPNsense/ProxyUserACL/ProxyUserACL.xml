@@ -8,28 +8,25 @@
         <general>
             <ACLs>
                 <ACL type="ArrayField">
+                    <Priority type="IntegerField">
+                        <default>0</default>
+                        <Required>Y</Required>
+                    </Priority>
                     <Name type="TextField">
                         <Required>Y</Required>
                     </Name>
                     <Hex type="TextField">
                         <Required>Y</Required>
                     </Hex>
-                    <Domains type="CSVListField">
-                        <Required>N</Required>
-                    </Domains>
-                    <Black type="OptionField">
+                    <Action type="OptionField">
                         <Required>Y</Required>
-                        <default>Black</default>
+                        <default>deny</default>
                         <OptionValues>
-                            <deny>Black</deny>
-                            <allow>White</allow>
+                            <deny>Deny</deny>
+                            <allow>Allow</allow>
                         </OptionValues>
-                    </Black>
-                    <Priority type="IntegerField">
-                        <default>0</default>
-                        <Required>Y</Required>
-                    </Priority>
-                    <Group type="OptionField">
+                    </Action>
+                    <SourceType type="OptionField">
                         <Required>Y</Required>
                         <default>group</default>
                         <OptionValues>
@@ -37,10 +34,76 @@
                             <user>User</user>
                             <address>Address</address>
                         </OptionValues>
-                    </Group>
-                    <Address type="CSVListField">
+                    </SourceType>
+                    <SourceAddress type="CSVListField">
                         <Required>N</Required>
-                    </Address>
+                    </SourceAddress>
+                    <Categories type="OptionField">
+                        <Required>N</Required>
+			<Multiple>Y</Multiple>
+                        <OptionValues>
+				<Unclassified>Unclassified</Unclassified>
+				<Ads>Ads</Ads>
+				<Alcohol-Tobacco>Alcohol/Tobacco</Alcohol-Tobacco>
+				<Astrology>Astrology</Astrology>
+				<Blog>Blog</Blog>
+				<Business-Service>Business/Service</Business-Service>
+				<CDN>CDN</CDN>
+				<Car-Vehicle>Car/Vehicle</Car-Vehicle>
+				<Chat>Chat</Chat>
+				<Computer-Technology>Computer/Technology</Computer-Technology>
+				<Cooking-Food>Cooking/Food</Cooking-Food>
+				<Dating>Dating</Dating>
+				<Download>Download</Download>
+				<Drugs>Drugs</Drugs>
+				<Education>Education</Education>
+				<Entertainment>Entertainment</Entertainment>
+				<Fashion-Beauty>Fashion/Beauty</Fashion-Beauty>
+				<File_Hosting>File Hosting</File_Hosting>
+				<Finance>Finance</Finance>
+				<Forums>Forums</Forums>
+				<Gambling>Gambling</Gambling>
+				<Game>Game</Game>
+				<Government>Government</Government>
+				<Hacking>Hacking</Hacking>
+				<Health-Medical>Health/Medical</Health-Medical>
+				<Home-Gardening>Home/Gardening</Home-Gardening>
+				<Hunting-Fishing>Hunting/Fishing</Hunting-Fishing>
+				<Job>Job</Job>
+				<Knowledge>Knowledge</Knowledge>
+				<Learning>Learning</Learning>
+				<Legal>Legal</Legal>
+				<Military>Military</Military>
+				<Misc>Misc</Misc>
+				<Music>Music</Music>
+				<News-Magazine>News/Magazine</News-Magazine>
+				<Pets>Pets</Pets>
+				<Phishing-Malware>Phishing/Malware</Phishing-Malware>
+				<Politics>Politics</Politics>
+				<Porn>Porn</Porn>
+				<Proxy-Anonymizer>Proxy/Anonymizer</Proxy-Anonymizer>
+				<Real_Estate>Real Estate</Real_Estate>
+				<Reference>Reference</Reference>
+				<Religion>Religion</Religion>
+				<Search_Engines>Search Engines</Search_Engines>
+				<Shopping>Shopping</Shopping>
+				<Social_Network>Social Network</Social_Network>
+				<Sports>Sports</Sports>
+				<Tracker>Tracker</Tracker>
+				<Travel>Travel</Travel>
+				<URL_Shortener>URL Shortener</URL_Shortener>
+				<Violence>Violence</Violence>
+				<Warez-Torrent>Warez/Torrent</Warez-Torrent>
+				<Weapon>Weapon</Weapon>
+				<Web_Hosting>Web Hosting</Web_Hosting>
+				<Webmail>Webmail</Webmail>
+				<Suspicious>Suspicious</Suspicious>
+				<Cryptocurrency>Cryptocurrency</Cryptocurrency>
+                        </OptionValues>
+                    </Categories>
+                    <Domains type="CSVListField">
+                        <Required>N</Required>
+                    </Domains>
                 </ACL>
             </ACLs>
         </general>

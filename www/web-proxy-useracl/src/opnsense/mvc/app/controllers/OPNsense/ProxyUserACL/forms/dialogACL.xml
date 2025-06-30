@@ -1,25 +1,31 @@
 <form>
     <field>
-        <id>ACL.Name</id>
-        <label>Name</label>
-        <type>text</type>
-        <help>Enter a name of user/group. Group name is case sensitive.</help>
-    </field>
-    <field>
         <id>ACL.Priority</id>
         <label>Priority</label>
         <type>text</type>
         <help>Rule priority</help>
     </field>
     <field>
-        <id>ACL.Group</id>
-        <label>Group/User</label>
-        <type>dropdown</type>
-        <help>Group or User ACL</help>
+        <id>ACL.Name</id>
+        <label>Name</label>
+        <type>text</type>
+        <help>Enter a name for this ACL. *Case sensitive for user/group name match.</help>
     </field>
     <field>
-        <id>ACL.Address</id>
-        <label>Address</label>
+        <id>ACL.Action</id>
+        <label>Action</label>
+        <type>dropdown</type>
+        <help>Deny or Allow</help>
+    </field>
+    <field>
+        <id>ACL.SourceType</id>
+        <label>Source Type</label>
+        <type>dropdown</type>
+        <help>Type of entity we are matching in this ACL.</help>
+    </field>
+    <field>
+        <id>ACL.SourceAddress</id>
+        <label>Source Address</label>
         <type>select_multiple</type>
         <style>tokenize</style>
         <allownew>true</allownew>
@@ -33,10 +39,10 @@
         <div class="text-info"><b>TIP: </b>You can also paste a comma separated list into this field.</div>]]></help>
     </field>
     <field>
-        <id>ACL.Black</id>
-        <label>Black/White</label>
-        <type>dropdown</type>
-        <help>Black or White list</help>
+        <id>ACL.Categories</id>
+        <label>Categories</label>
+        <type>select_multiple</type>
+        <help>List of site categories that this ACL applies to.</help>
     </field>
     <field>
         <id>ACL.Domains</id>
@@ -55,5 +61,10 @@
         </div>
         <div class="text-info"><b>TIP: </b>You can also paste a comma separated list into this field.</div>]]></help>
         <hint>Regular expressions are allowed.</hint>
+    </field>
+    <field>
+        <id>ACL.Description</id>
+        <label>Description</label>
+        <type>text</type>
     </field>
 </form>
