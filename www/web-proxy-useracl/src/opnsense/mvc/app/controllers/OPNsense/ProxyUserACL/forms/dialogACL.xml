@@ -35,6 +35,7 @@
             <b>Examples:</b><br/>
             <b class="text-primary">192.168.0.10</b> -> matches only that address.</b><br/>
             <b class="text-primary">192.168.0.0/24</b> -> matches whole subnet.</b><br/>
+            <b class="text-primary">bc:24:11:07:da:7e</b> -> matches mac address.</b><br/>
         </div>
         <div class="text-info"><b>TIP: </b>You can also paste a comma separated list into this field.</div>]]></help>
     </field>
