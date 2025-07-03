@@ -1,7 +1,7 @@
 <menu>
     <Services>
         <SquidWebProxy>
-            <ProxyUserACL VisibleName="Groups and Users" order="30" url="/ui/proxyuseracl"/>
+            <ProxyUserACL VisibleName="Policies" order="30" url="/ui/proxyuseracl"/>
         </SquidWebProxy>
     </Services>
 </menu>
