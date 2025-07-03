@@ -1,4 +1,5 @@
 {#
+    Copyright (C) 2025 CitraIT
     Copyright (C) 2017 Smart-Soft
     
     All rights reserved.
@@ -116,13 +117,13 @@
                     <table id="grid-acl" class="table table-condensed table-hover table-striped table-responsive"
                            data-editDialog="DialogACL">
                         <thead>
-                        <tr>
+<tr>
                             <th data-column-id="Priority" data-width="10em" data-type="string" data-sortable="true"
                                 data-visible="true">{{ lang._('Number') }}</th>
                             <th data-column-id="SourceType" data-width="10em" data-type="string"
-                                data-sortable="false">{{ lang._('Source') }}</th>
+                                data-sortable="false">{{ lang._('Matches') }}</th>
                             <th data-column-id="SourceAddress" data-width="10em" data-type="string"
-                                data-sortable="false">{{ lang._('Address') }}</th>
+                                data-sortable="false">{{ lang._('Source') }}</th>
                             <th data-column-id="Action" data-width="10em" data-type="string"
                                 data-sortable="false">{{ lang._('Action') }}</th>
                             <th data-column-id="Name" data-type="string"

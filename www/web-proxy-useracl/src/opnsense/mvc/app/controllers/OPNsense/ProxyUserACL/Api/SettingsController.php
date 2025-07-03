@@ -1,6 +1,7 @@
 <?php
 
 /**
+ *    Copyright (C) 2025 CitraIT
  *    Copyright (C) 2017 Smart-Soft
  *
  *    All rights reserved.
@@ -58,7 +59,7 @@ class SettingsController extends ApiMutableModelControllerBase
         $grid = new UIModelGrid($mdlProxyUserACL->general->ACLs->ACL);
         return $grid->fetchBindRequest(
             $this->request,
-            array('SourceType', 'Name', 'Domains', 'Action', 'Priority', 'uuid'),
+            array('Name', 'SourceType', 'SourceAddress', 'Domains', 'Action', 'Priority', 'uuid'),
             'Priority'
         );
     }
@@ -294,7 +295,7 @@ class SettingsController extends ApiMutableModelControllerBase
     private function checkName($user, $search)
     {
         /* do not validate name of address agains a user source */
-        if($search == "address") { 
+        if($search == "address") {
             return true;
         }
         $authFactory = new AuthenticationFactory();
