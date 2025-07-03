@@ -2,6 +2,7 @@
 chmod +x /usr/local/opnsense/scripts/OPNsense/ProxyUserACL/reload.php
 
 # give execution permissions to integration script
+chmod +x /usr/local/libexec/squid/nxbridge
 chmod +x /usr/local/libexec/squid/nxbridge.py
 
 # reload squid if running
