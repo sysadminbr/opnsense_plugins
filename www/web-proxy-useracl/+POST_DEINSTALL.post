@@ -1,6 +1,14 @@
+
+rm -f /usr/local/etc/inc/plugins.inc.d/proxy_useracl.inc
+rm -rf /usr/local/opnsense/mvc/app/views/OPNsense/ProxyUserACL
+rm -rf /usr/local/opnsense/mvc/app/models/OPNsense/ProxyUserACL
+rm -rf /usr/local/opnsense/mvc/app/controllers/OPNsense/ProxyUserACL
+rm -rf /usr/local/opnsense/service/templates/OPNsense/ProxyUserACL
+rm -f /usr/local/opnsense/service/conf/actions.d/actions_proxyuseracl.conf
 rm -f /usr/local/etc/squid/pre-auth/ProxyUserACL.conf
 rm -f /usr/local/etc/squid/groupACL_*.txt
 rm -f /usr/local/etc/squid/userACL_*.txt
 if [ -f /var/run/squid/squid.pid ]; then
-	service squid reload
+        service squid reload
 fi
+
