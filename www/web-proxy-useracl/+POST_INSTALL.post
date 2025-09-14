@@ -7,7 +7,7 @@ chmod +x /usr/local/libexec/squid/nxbridge.py
 
 # reload squid if running
 if [ -f /var/run/squid/squid.pid ]; then
-	service squid reload
+	service squid restart
 fi
 
 # reload plugins information base
