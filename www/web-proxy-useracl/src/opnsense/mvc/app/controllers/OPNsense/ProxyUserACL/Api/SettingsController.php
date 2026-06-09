@@ -54,7 +54,6 @@ class SettingsController extends ApiMutableModelControllerBase
      */
     public function searchACLAction()
     {
-        $this->sessionClose();
         $mdlProxyUserACL = $this->getModel();
         $grid = new UIModelGrid($mdlProxyUserACL->general->ACLs->ACL);
         return $grid->fetchBindRequest(
